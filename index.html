@@ -174,7 +174,44 @@ padding:0;
 }
 
 </style>
+.petal {
 
+position:fixed;
+top:-50px;
+font-size:25px;
+color:#d8b06a;
+animation:fall 8s linear infinite;
+z-index:10;
+pointer-events:none;
+
+}
+
+
+@keyframes fall {
+
+0% {
+
+transform:translateY(-50px) rotate(0deg);
+opacity:0;
+
+}
+
+
+20% {
+
+opacity:1;
+
+}
+
+
+100% {
+
+transform:translateY(110vh) rotate(360deg);
+opacity:0;
+
+}
+
+}
 </head>
 
 <body>
@@ -275,7 +312,8 @@ let envelope = document.getElementById("envelope");
 
 let music = document.getElementById("music");
 
-
+createPetals();
+  
 music.volume = 0.7;
 
 music.play().catch(function(error){
@@ -335,7 +373,34 @@ days+" Ditë "+hours+" Orë "+minutes+" Minuta "+seconds+" Sekonda";
 
 },1000);
 
+function createPetals(){
 
+for(let i=0;i<20;i++){
+
+let petal=document.createElement("div");
+
+petal.className="petal";
+
+petal.innerHTML="✿";
+
+petal.style.left=Math.random()*100+"vw";
+
+petal.style.animationDelay=Math.random()*5+"s";
+
+petal.style.fontSize=(15+Math.random()*20)+"px";
+
+document.body.appendChild(petal);
+
+
+setTimeout(()=>{
+
+petal.remove();
+
+},8000);
+
+}
+
+}
 
 </script>
 
