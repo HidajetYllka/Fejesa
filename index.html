@@ -12,6 +12,7 @@
 box-sizing:border-box;
 }
 
+
 html, body {
 
 margin:0;
@@ -61,21 +62,7 @@ box-shadow:0 20px 60px rgba(0,0,0,.25);
 
 
 .full-photo {
-.fade {
 
-opacity:0;
-transform:translateY(40px);
-transition:1s ease;
-
-}
-
-
-.fade.show {
-
-opacity:1;
-transform:translateY(0);
-
-}
 width:100vw;
 height:100vh;
 object-fit:cover;
@@ -92,7 +79,7 @@ padding:0;
 margin:25px 15px;
 padding:35px 20px;
 border-radius:25px;
-border:1px solid #d8c2a3;
+border:1px solid #d8b06a;
 box-shadow:0 10px 30px rgba(0,0,0,.08);
 
 }
@@ -109,12 +96,7 @@ background:#faf7f2;
 
 .location-frame {
 
-.location-frame {
-
 background:#faf7f2;
-border:1px solid #d8b06a;
-border-radius:25px;
-box-shadow:0 10px 30px rgba(0,0,0,0.08);
 
 }
 
@@ -129,7 +111,6 @@ color:#b08d57;
 }
 
 
-
 h2 {
 
 font-size:40px;
@@ -139,15 +120,12 @@ color:#b08d57;
 }
 
 
-
 p {
 
 font-size:28px;
 
 }
-
-
-
+  
 .map-button {
 
 display:inline-block;
@@ -170,49 +148,15 @@ height:auto;
 display:block;
 margin:0;
 padding:0;
+object-fit:cover;
 
 }
+
 
 </style>
-.petal {
 
-position:fixed;
-top:-50px;
-font-size:25px;
-color:#d8b06a;
-animation:fall 8s linear infinite;
-z-index:10;
-pointer-events:none;
-
-}
-
-
-@keyframes fall {
-
-0% {
-
-transform:translateY(-50px) rotate(0deg);
-opacity:0;
-
-}
-
-
-20% {
-
-opacity:1;
-
-}
-
-
-100% {
-
-transform:translateY(110vh) rotate(360deg);
-opacity:0;
-
-}
-
-}
 </head>
+
 
 <body>
 
@@ -233,14 +177,14 @@ opacity:0;
 
 
 
-<img src="foto.jpg" class="full-photo fade">
+<img src="foto.jpg" class="full-photo">
 
 
-<img src="ftesa.jpg" class="full-photo fade">
+<img src="ftesa.jpg" class="full-photo">
 
 
 
-<section class="frame countdown-frame fade">
+<section class="frame countdown-frame">
 
 <h1>
 Hidajet & Yllka
@@ -261,9 +205,6 @@ Koha e mbetur deri në ditën tonë speciale
 
 
 </section>
-
-
-
 
 <section class="frame location-frame">
 
@@ -303,6 +244,8 @@ Hap Google Maps
 
 </div>
 
+
+
 <script>
 
 
@@ -312,8 +255,7 @@ let envelope = document.getElementById("envelope");
 
 let music = document.getElementById("music");
 
-createPetals();
-  
+
 music.volume = 0.7;
 
 music.play().catch(function(error){
@@ -323,11 +265,9 @@ console.log("Music blocked:", error);
 });
 
 
-
 envelope.style.transform="scale(1.5)";
 
 envelope.style.opacity="0";
-
 
 
 setTimeout(function(){
@@ -351,7 +291,7 @@ setInterval(function(){
 
 let now = new Date().getTime();
 
-let distance = date - now;
+let distance = date-now;
 
 
 
@@ -370,37 +310,8 @@ document.getElementById("countdown").innerHTML =
 days+" Ditë "+hours+" Orë "+minutes+" Minuta "+seconds+" Sekonda";
 
 
-
 },1000);
 
-function createPetals(){
-
-for(let i=0;i<20;i++){
-
-let petal=document.createElement("div");
-
-petal.className="petal";
-
-petal.innerHTML="✿";
-
-petal.style.left=Math.random()*100+"vw";
-
-petal.style.animationDelay=Math.random()*5+"s";
-
-petal.style.fontSize=(15+Math.random()*20)+"px";
-
-document.body.appendChild(petal);
-
-
-setTimeout(()=>{
-
-petal.remove();
-
-},8000);
-
-}
-
-}
 
 </script>
 
