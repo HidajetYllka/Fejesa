@@ -146,9 +146,36 @@ box-shadow:0 10px 30px rgba(0,0,0,0.2);
 
 <div id="envelope" onclick="openEnvelope()">
 
-<img src="envelope.jpg" class="envelope-image">
+function openEnvelope(){
 
-</div>
+let envelope = document.getElementById("envelope");
+let music = document.getElementById("music");
+
+music.volume = 0.7;
+
+music.play().then(()=>{
+
+console.log("Music started");
+
+}).catch(error=>{
+
+console.log("Music blocked", error);
+
+});
+
+
+envelope.style.transform="scale(1.5)";
+envelope.style.opacity="0";
+
+
+setTimeout(function(){
+
+envelope.style.display="none";
+
+},1200);
+
+
+}
 
 
 
