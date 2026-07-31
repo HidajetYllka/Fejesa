@@ -4,7 +4,7 @@
 
 <title>Hidajet & Yllka</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Great+Vibes&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Great+Vibes&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
 
@@ -13,7 +13,7 @@ body {
     background:white;
     text-align:center;
     color:#5a4032;
-    font-family:'Montserrat', sans-serif;
+    font-family:'Montserrat',sans-serif;
 }
 
 
@@ -22,6 +22,7 @@ body {
     inset:0;
     background:white;
     display:flex;
+    flex-direction:column;
     justify-content:center;
     align-items:center;
     z-index:9999;
@@ -48,11 +49,11 @@ transform:scale(1.05);
 }
 
 
+
 .welcome {
 
-margin-top:50px;
-font-family:'Great Vibes', cursive;
-font-size:80px;
+font-family:'Great Vibes',cursive;
+font-size:85px;
 font-weight:400;
 color:#b08d57;
 
@@ -62,8 +63,8 @@ color:#b08d57;
 h1 {
 
 font-family:'Cormorant Garamond',serif;
-font-weight:300;
 font-size:60px;
+font-weight:300;
 color:#7b4f2c;
 
 }
@@ -72,8 +73,8 @@ color:#7b4f2c;
 h2 {
 
 font-family:'Cormorant Garamond',serif;
-font-weight:300;
 font-size:38px;
+font-weight:300;
 color:#b08d57;
 
 }
@@ -82,7 +83,6 @@ color:#b08d57;
 p {
 
 font-family:'Cormorant Garamond',serif;
-font-weight:300;
 font-size:28px;
 
 }
@@ -92,7 +92,6 @@ font-size:28px;
 
 font-family:'Cormorant Garamond',serif;
 font-size:35px;
-font-weight:300;
 
 }
 
@@ -107,6 +106,7 @@ border-radius:20px;
 box-shadow:0 10px 30px rgba(0,0,0,0.2);
 
 }
+
 
 
 .gallery {
@@ -131,8 +131,6 @@ box-shadow:0 10px 30px rgba(0,0,0,0.2);
 
 </style>
 
-</head>
-
 <body>
 
 
@@ -146,36 +144,9 @@ box-shadow:0 10px 30px rgba(0,0,0,0.2);
 
 <div id="envelope" onclick="openEnvelope()">
 
-function openEnvelope(){
+<img src="envelope.jpg" class="envelope-image">
 
-let envelope = document.getElementById("envelope");
-let music = document.getElementById("music");
-
-music.volume = 0.7;
-
-music.play().then(()=>{
-
-console.log("Music started");
-
-}).catch(error=>{
-
-console.log("Music blocked", error);
-
-});
-
-
-envelope.style.transform="scale(1.5)";
-envelope.style.opacity="0";
-
-
-setTimeout(function(){
-
-envelope.style.display="none";
-
-},1200);
-
-
-}
+</div>
 
 
 
@@ -184,9 +155,11 @@ Ftesë Fejese
 </h1>
 
 
+
 <h1>
 Hidajet & Yllka
 </h1>
+
 
 
 <h2>
@@ -194,9 +167,11 @@ Hidajet & Yllka
 </h2>
 
 
+
 <p>
 Koha e mbetur deri në ditën tonë speciale
 </p>
+
 
 
 <h2 id="countdown"></h2>
@@ -207,6 +182,7 @@ Koha e mbetur deri në ditën tonë speciale
 
 
 <img src="ftesa.jpg" class="main-photo">
+
 
 <div class="gallery">
 
@@ -219,46 +195,39 @@ Koha e mbetur deri në ditën tonë speciale
 <img src="photos/gallery4.jpg">
 
 </div>
-
-
-
 <script>
 
 
 function openEnvelope(){
-
 
 let envelope = document.getElementById("envelope");
 
 let music = document.getElementById("music");
 
 
-// Start piano immediately after tap
-
-music.currentTime = 0;
+// start piano with the same tap
 
 music.volume = 0.7;
 
-music.play().catch(error => {
+music.play().catch(function(error){
 
-console.log("Audio blocked", error);
+console.log("Music blocked:", error);
 
 });
 
 
 
-envelope.style.transform = "scale(1.5)";
+envelope.style.transform="scale(1.5)";
 
-envelope.style.opacity = "0";
+envelope.style.opacity="0";
 
 
 
-setTimeout(()=>{
+setTimeout(function(){
 
 envelope.style.display="none";
 
 },1200);
-
 
 
 }
@@ -276,6 +245,7 @@ setInterval(function(){
 let now = new Date().getTime();
 
 let distance = date - now;
+
 
 
 let days = Math.floor(distance/(1000*60*60*24));
@@ -304,3 +274,4 @@ days+" Ditë "+hours+" Orë "+minutes+" Minuta "+seconds+" Sekonda";
 </body>
 
 </html>
+</head>
