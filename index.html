@@ -4,17 +4,16 @@
 
 <title>Hidajet & Yllka</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Great+Vibes&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
 
 body {
-    margin:0;
-    background:white;
-    color:#5a4032;
-    text-align:center;
-    font-family:'Montserrat',sans-serif;
+margin:0;
+background:white;
+color:#5a4032;
+text-align:center;
+font-family:'Cormorant Garamond',serif;
 }
 
 
@@ -32,72 +31,15 @@ transition:1.2s;
 }
 
 
-
 .envelope-image {
 
 width:520px;
 max-width:85%;
 cursor:pointer;
 border-radius:15px;
-box-shadow:0 20px 60px rgba(0,0,0,0.25);
-animation:pulse 2.5s infinite;
+box-shadow:0 20px 60px rgba(0,0,0,.25);
 
 }
-
-
-
-@keyframes pulse {
-
-50% {
-
-transform:scale(1.05);
-
-}
-
-}
-
-
-
-.welcome {
-
-font-family:'Great Vibes',cursive;
-font-size:85px;
-font-weight:400;
-color:#b08d57;
-
-}
-
-
-
-h1 {
-
-font-family:'Cormorant Garamond',serif;
-font-size:60px;
-font-weight:300;
-color:#7b4f2c;
-
-}
-
-
-
-h2 {
-
-font-family:'Cormorant Garamond',serif;
-font-size:38px;
-font-weight:300;
-color:#b08d57;
-
-}
-
-
-
-p {
-
-font-family:'Cormorant Garamond',serif;
-font-size:28px;
-
-}
-
 
 
 .full-photo {
@@ -110,32 +52,75 @@ display:block;
 }
 
 
-.details {
+.frame {
 
-padding:50px 20px;
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:30px;
+box-sizing:border-box;
+
+}
+
+
+.countdown-frame {
+
+background:#faf7f2;
+
+}
+
+
+.location-frame {
+
+background:white;
+
+}
+
+
+h1 {
+
+font-family:'Great Vibes',cursive;
+font-size:75px;
+color:#b08d57;
+
+}
+
+
+h2 {
+
+font-size:45px;
+font-weight:300;
+color:#b08d57;
+
+}
+
+
+p {
+
+font-size:30px;
 
 }
 
 
 .map-button {
 
-display:inline-block;
-margin-top:20px;
 padding:15px 35px;
 background:#b08d57;
 color:white;
 text-decoration:none;
 border-radius:30px;
-font-family:'Cormorant Garamond',serif;
 font-size:25px;
 
 }
 
 
-#countdown {
+.gallery img {
 
-font-family:'Cormorant Garamond',serif;
-font-size:35px;
+width:100%;
+display:block;
+margin:20px 0;
 
 }
 
@@ -170,49 +155,32 @@ font-size:35px;
 
 
 
-<section class="details">
-
-
-<h<section class="details countdown-frame">
+<section class="frame countdown-frame">
 
 <h1>
 Hidajet & Yllka
 </h1>
 
+
 <h2>
 15 Gusht 2026
 </h2>
+
 
 <p>
 Koha e mbetur deri në ditën tonë speciale
 </p>
 
+
 <h2 id="countdown"></h2>
 
-</section>
-
-
-
-<section class="details location-frame">
-
-<h2>
-Lokacioni
-</h2>
-
-<p>
-Villa Natyra<br>
-Vranidoll
-</p>
-
-
-<a class="map-button" href="https://www.google.com/maps/search/?api=1&query=Villa+Natyra+Vranidoll" target="_blank">
-
-Hap Google Maps
-
-</a>
 
 </section>
 
+
+
+
+<section class="frame location-frame">
 
 <h2>
 Lokacioni
@@ -233,17 +201,23 @@ Hap Google Maps
 
 
 </section>
-<h2>
-Galeria
-</h2>
 
-<img src="gallery1.jpg" class="full-photo">
 
-<img src="gallery2.jpg" class="full-photo">
 
-<img src="gallery3.jpg" class="full-photo">
+<div class="gallery">
 
-<img src="gallery4.jpg" class="full-photo">
+
+<img src="gallery1.jpg">
+
+<img src="gallery2.jpg">
+
+<img src="gallery3.jpg">
+
+<img src="gallery4.jpg">
+
+
+</div>
+
 <script>
 
 
@@ -253,8 +227,6 @@ let envelope = document.getElementById("envelope");
 
 let music = document.getElementById("music");
 
-
-// Start piano when envelope is clicked
 
 music.volume = 0.7;
 
