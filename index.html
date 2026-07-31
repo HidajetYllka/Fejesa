@@ -6,19 +6,16 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Great+Vibes&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
-
 <style>
 
 body {
     margin:0;
-    background:#ffffff;
+    background:white;
     text-align:center;
     color:#5a4032;
     font-family:'Montserrat', sans-serif;
 }
 
-
-/* ENVELOPE */
 
 #envelope {
     position:fixed;
@@ -45,110 +42,96 @@ body {
 @keyframes pulse {
 
 50% {
-    transform:scale(1.05);
+transform:scale(1.05);
 }
 
 }
-
-
-/* TEXT */
 
 
 .welcome {
 
-    margin-top:50px;
-    font-family:'Great Vibes', cursive;
-    font-weight:400;
-    font-size:85px;
-    color:#b08d57;
+margin-top:50px;
+font-family:'Great Vibes', cursive;
+font-size:80px;
+font-weight:400;
+color:#b08d57;
 
 }
-
 
 
 h1 {
 
-    font-family:'Cormorant Garamond', serif;
-    font-weight:300;
-    font-size:60px;
-    color:#7b4f2c;
+font-family:'Cormorant Garamond',serif;
+font-weight:300;
+font-size:60px;
+color:#7b4f2c;
 
 }
-
 
 
 h2 {
 
-    font-family:'Cormorant Garamond', serif;
-    font-weight:300;
-    font-size:38px;
-    color:#b08d57;
+font-family:'Cormorant Garamond',serif;
+font-weight:300;
+font-size:38px;
+color:#b08d57;
 
 }
-
 
 
 p {
 
-    font-family:'Cormorant Garamond', serif;
-    font-weight:300;
-    font-size:28px;
-    color:#6b5242;
+font-family:'Cormorant Garamond',serif;
+font-weight:300;
+font-size:28px;
 
 }
-
 
 
 #countdown {
 
-    font-family:'Cormorant Garamond', serif;
-    font-weight:300;
-    font-size:35px;
-    color:#7b4f2c;
+font-family:'Cormorant Garamond',serif;
+font-size:35px;
+font-weight:300;
 
 }
 
 
-
-/* PHOTOS */
-
-
 .main-photo {
 
-    display:block;
-    width:90%;
-    max-width:420px;
-    margin:35px auto;
-    border-radius:20px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+display:block;
+width:90%;
+max-width:420px;
+margin:35px auto;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
 
 }
 
 
 .gallery {
 
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    width:100%;
+display:flex;
+flex-direction:column;
+align-items:center;
 
 }
 
 
 .gallery img {
 
-    display:block;
-    width:90%;
-    max-width:350px;
-    margin:30px auto;
-    border-radius:20px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+display:block;
+width:90%;
+max-width:350px;
+margin:30px auto;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
 
 }
+
 </style>
 
 </head>
-
 
 <body>
 
@@ -174,11 +157,9 @@ Ftesë Fejese
 </h1>
 
 
-
 <h1>
 Hidajet & Yllka
 </h1>
-
 
 
 <h2>
@@ -186,11 +167,9 @@ Hidajet & Yllka
 </h2>
 
 
-
 <p>
 Koha e mbetur deri në ditën tonë speciale
 </p>
-
 
 
 <h2 id="countdown"></h2>
@@ -198,7 +177,6 @@ Koha e mbetur deri në ditën tonë speciale
 
 
 <img src="foto.jpg" class="main-photo">
-
 
 
 <img src="ftesa.jpg" class="main-photo">
@@ -228,27 +206,35 @@ let envelope = document.getElementById("envelope");
 let music = document.getElementById("music");
 
 
-// start piano when envelope opens
+// Start piano immediately after tap
 
-music.play();
+music.currentTime = 0;
+
+music.volume = 0.7;
+
+music.play().catch(error => {
+
+console.log("Audio blocked", error);
+
+});
 
 
 
-envelope.style.transform="scale(1.5)";
+envelope.style.transform = "scale(1.5)";
 
-envelope.style.opacity="0";
+envelope.style.opacity = "0";
 
 
 
-setTimeout(function(){
+setTimeout(()=>{
 
 envelope.style.display="none";
 
 },1200);
 
 
-}
 
+}
 
 
 
@@ -263,7 +249,6 @@ setInterval(function(){
 let now = new Date().getTime();
 
 let distance = date - now;
-
 
 
 let days = Math.floor(distance/(1000*60*60*24));
