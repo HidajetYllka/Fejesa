@@ -8,17 +8,30 @@
 
 <style>
 
+* {
+box-sizing:border-box;
+}
 
-body {
+html, body {
 
 margin:0;
 padding:0;
 overflow-x:hidden;
 width:100%;
-background:white;
 
 }
+
+
+body {
+
+background:white;
+color:#5a4032;
+text-align:center;
+font-family:'Cormorant Garamond',serif;
+
 }
+
+
 
 #envelope {
 
@@ -34,15 +47,17 @@ transition:1.2s;
 }
 
 
+
 .envelope-image {
 
 width:650px;
-max-width:85%;
+max-width:90%;
 cursor:pointer;
 border-radius:15px;
 box-shadow:0 20px 60px rgba(0,0,0,.25);
 
 }
+
 
 
 .full-photo {
@@ -55,27 +70,19 @@ margin:0;
 padding:0;
 
 }
-}
-}
 
 
-.frame {
 
 .frame {
 
-min-height:auto;
-margin:40px 20px;
-padding:40px 20px;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-box-sizing:border-box;
+margin:25px 15px;
+padding:35px 20px;
 border-radius:25px;
 border:1px solid #d8c2a3;
-box-shadow:0 10px 30px rgba(0,0,0,0.08);
+box-shadow:0 10px 30px rgba(0,0,0,.08);
 
 }
+
 
 
 .countdown-frame {
@@ -85,11 +92,13 @@ background:#faf7f2;
 }
 
 
+
 .location-frame {
 
 background:white;
 
 }
+
 
 
 h1 {
@@ -101,24 +110,29 @@ color:#b08d57;
 }
 
 
+
 h2 {
 
-font-size:45px;
+font-size:40px;
 font-weight:300;
 color:#b08d57;
 
 }
 
 
+
 p {
 
-font-size:30px;
+font-size:28px;
 
 }
 
 
+
 .map-button {
 
+display:inline-block;
+margin-top:20px;
 padding:15px 35px;
 background:#b08d57;
 color:white;
@@ -129,6 +143,7 @@ font-size:25px;
 }
 
 
+
 .gallery img {
 
 width:100vw;
@@ -136,10 +151,8 @@ height:auto;
 display:block;
 margin:0;
 padding:0;
-object-fit:cover;
 
 }
-
 
 </style>
 
