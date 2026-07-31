@@ -11,10 +11,10 @@
 
 body {
     margin:0;
-    background:white;
-    font-family:'Montserrat', sans-serif;
+    background:#ffffff;
     text-align:center;
-    color:#4a2c20;
+    color:#5a4032;
+    font-family:'Montserrat', sans-serif;
 }
 
 
@@ -28,17 +28,17 @@ body {
     justify-content:center;
     align-items:center;
     z-index:9999;
-    transition:1s;
+    transition:1.2s;
 }
 
 
 .envelope-image {
-    width:500px;
+    width:520px;
     max-width:85%;
-    border-radius:15px;
     cursor:pointer;
-    box-shadow:0 20px 50px rgba(0,0,0,0.25);
-    animation:pulse 2s infinite;
+    border-radius:15px;
+    box-shadow:0 20px 60px rgba(0,0,0,0.25);
+    animation:pulse 2.5s infinite;
 }
 
 
@@ -51,17 +51,16 @@ body {
 }
 
 
-
 /* TEXT */
+
 
 .welcome {
 
     margin-top:50px;
     font-family:'Great Vibes', cursive;
     font-weight:400;
-    font-size:80px;
-    color:#b8860b;
-    animation:show 2s;
+    font-size:85px;
+    color:#b08d57;
 
 }
 
@@ -72,7 +71,7 @@ h1 {
     font-family:'Cormorant Garamond', serif;
     font-weight:300;
     font-size:60px;
-    color:#8b5e3c;
+    color:#7b4f2c;
 
 }
 
@@ -83,7 +82,7 @@ h2 {
     font-family:'Cormorant Garamond', serif;
     font-weight:300;
     font-size:38px;
-    color:#b8860b;
+    color:#b08d57;
 
 }
 
@@ -93,9 +92,8 @@ p {
 
     font-family:'Cormorant Garamond', serif;
     font-weight:300;
-    font-size:26px;
-    letter-spacing:1px;
-    color:#6b4f3a;
+    font-size:28px;
+    color:#6b5242;
 
 }
 
@@ -106,23 +104,7 @@ p {
     font-family:'Cormorant Garamond', serif;
     font-weight:300;
     font-size:35px;
-    letter-spacing:2px;
-
-}
-
-
-
-@keyframes show {
-
-from {
-    opacity:0;
-    transform:translateY(40px);
-}
-
-to {
-    opacity:1;
-    transform:translateY(0);
-}
+    color:#7b4f2c;
 
 }
 
@@ -133,11 +115,12 @@ to {
 
 .main-photo {
 
+    display:block;
     width:90%;
     max-width:420px;
-    margin:25px;
+    margin:35px auto;
     border-radius:20px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
 
 }
 
@@ -147,17 +130,19 @@ to {
     display:flex;
     flex-direction:column;
     align-items:center;
+    width:100%;
 
 }
 
 
 .gallery img {
 
+    display:block;
     width:90%;
     max-width:350px;
-    margin:15px;
+    margin:30px auto;
     border-radius:20px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
 
 }
 </style>
@@ -166,6 +151,14 @@ to {
 
 
 <body>
+
+
+<audio id="music" loop>
+
+<source src="piano.mp3" type="audio/mp3">
+
+</audio>
+
 
 
 <div id="envelope" onclick="openEnvelope()">
@@ -181,9 +174,11 @@ Ftesë Fejese
 </h1>
 
 
+
 <h1>
 Hidajet & Yllka
 </h1>
+
 
 
 <h2>
@@ -191,9 +186,11 @@ Hidajet & Yllka
 </h2>
 
 
+
 <p>
 Koha e mbetur deri në ditën tonë speciale
 </p>
+
 
 
 <h2 id="countdown"></h2>
@@ -203,13 +200,17 @@ Koha e mbetur deri në ditën tonë speciale
 <img src="foto.jpg" class="main-photo">
 
 
+
 <img src="ftesa.jpg" class="main-photo">
 
 <div class="gallery">
 
 <img src="photos/gallery1.jpg">
+
 <img src="photos/gallery2.jpg">
+
 <img src="photos/gallery3.jpg">
+
 <img src="photos/gallery4.jpg">
 
 </div>
@@ -221,24 +222,39 @@ Koha e mbetur deri në ditën tonë speciale
 
 function openEnvelope(){
 
-let env = document.getElementById("envelope");
 
-env.style.transform = "scale(1.5)";
-env.style.opacity = "0";
+let envelope = document.getElementById("envelope");
+
+let music = document.getElementById("music");
+
+
+// start piano when envelope opens
+
+music.play();
+
+
+
+envelope.style.transform="scale(1.5)";
+
+envelope.style.opacity="0";
+
 
 
 setTimeout(function(){
 
-env.style.display = "none";
+envelope.style.display="none";
 
-},1000);
+},1200);
+
 
 }
 
 
 
 
+
 let date = new Date("August 15, 2026 00:00:00").getTime();
+
 
 
 setInterval(function(){
@@ -247,6 +263,7 @@ setInterval(function(){
 let now = new Date().getTime();
 
 let distance = date - now;
+
 
 
 let days = Math.floor(distance/(1000*60*60*24));
@@ -264,6 +281,7 @@ document.getElementById("countdown").innerHTML =
 days+" Ditë "+hours+" Orë "+minutes+" Minuta "+seconds+" Sekonda";
 
 
+
 },1000);
 
 
@@ -272,4 +290,5 @@ days+" Ditë "+hours+" Orë "+minutes+" Minuta "+seconds+" Sekonda";
 
 
 </body>
+
 </html>
